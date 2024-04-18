@@ -18,6 +18,8 @@ jobs:
       - name: Publish to Docker Hub
         uses: docker/build-push-action@v1
         with:
+          context: 'devops-labs-master'
+          dockerfile: 'devops-labs-master/Dockerfile'
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
           repository: skerdishehaj/cloud-app-mpl
