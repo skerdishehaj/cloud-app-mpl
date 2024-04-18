@@ -15,10 +15,12 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: mvn -B package --file 'devops-labs-master/pom.xml'
+      - name: Copy JAR to Docker context
+        run: cp devops-labs-master/target/*.jar .
       - name: Publish to Docker Hub
         uses: docker/build-push-action@v1
         with:
-            context: ./devops-labs-master/
+          context: ./devops-labs-master/
           dockerfile: 'devops-labs-master/Dockerfile'
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
