@@ -5,7 +5,7 @@ VOLUME /var/logs
 EXPOSE 8080
 
 WORKDIR /backend
-ARG JAR_FILE=./target/*.jar
+ARG JAR_FILE=./devops-labs-master/target/*.jar
 CMD PWD
 ADD ${JAR_FILE} fti.jar
 
