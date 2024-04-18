@@ -1,4 +1,4 @@
-name: Java CI with Maven'
+name: Java CI with Maven
 on:
   push:
     branches: ['master']
@@ -18,10 +18,9 @@ jobs:
       - name: Publish to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          context: 'devops-labs-master'
+          context: .
           dockerfile: 'devops-labs-master/Dockerfile'
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
           repository: skerdishehaj/cloud-app-mpl
-          # generate a tag number for the image (start from 1)
           tag_with_ref: true
